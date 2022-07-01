@@ -1,5 +1,6 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, ValidationPipe } from '@nestjs/common';
 import { booksService } from './books.service';
+import { createDto } from './dtos/create.dto';
 
 @Controller('book')
 export class booksController {
@@ -11,8 +12,8 @@ export class booksController {
   }
 
   @Post('/save')
-  saveBook(@Body() body: string) {
-    console.log(body);
+  saveBook(@Body(new ValidationPipe()) body: createDto) {
+    console.log(body, 'from controller');
     return this.bookService.saveBook(body);
   }
 }

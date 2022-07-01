@@ -7,7 +7,7 @@ export class booksService {
   }
 
   saveBook(data) {
-    console.log(data);
+    console.log(data, 'from service');
     return data;
   }
 }
