@@ -5,4 +5,9 @@ export class booksService {
   getBook(): string {
     return 'Your book is here';
   }
+
+  saveBook(data) {
+    console.log(data);
+    return data;
+  }
 }
